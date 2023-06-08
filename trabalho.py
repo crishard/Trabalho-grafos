@@ -158,6 +158,10 @@ class GraphTool:
                 graph_id = int(command[2].split('=')[1])
                 vertex = command[3].split('=')[1].strip('"')
                 self.get_vertex_degree(graph_id, vertex)
+            elif command[1] == 'alcancaveis' and len(command) == 4:
+                graph_id = int(command[2].split('=')[1])
+                starting_vertex = command[3].split('=')[1].strip("'").strip('"')
+                self.find_reachable_vertices(graph_id, starting_vertex)
             elif command[1] == 'sair':
                 sys.exit()
             else:
