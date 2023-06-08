@@ -29,6 +29,8 @@ class GraphTool:
         if command[0] == 'grafos':
             if len(command) == 3 and command[1] == 'carregar':
                 self.load_graphs_from_file(command[2])
+            elif command[1] == 'multigrafos':
+                self.check_multigraphs()
             elif command[1] == 'sair':
                 sys.exit()
             else:
