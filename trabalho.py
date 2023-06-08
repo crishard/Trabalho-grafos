@@ -115,6 +115,9 @@ class GraphTool:
                 self.check_disconnected_graphs()
             elif command[1] == 'completos':
                 self.check_complete_graphs()
+            elif command[1] == 'graus' and len(command) == 3:
+                graph_id = int(command[2].split('=')[1])
+                self.get_vertex_degrees(graph_id)
             elif command[1] == 'sair':
                 sys.exit()
             else:
