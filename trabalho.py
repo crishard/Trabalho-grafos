@@ -59,6 +59,8 @@ class GraphTool:
                 self.check_multigraphs()
             elif command[1] == 'pseudografos':
                 self.check_pseudographs()
+            elif command[1] == 'desconexos':
+                self.check_disconnected_graphs()
             elif command[1] == 'sair':
                 sys.exit()
             else:
