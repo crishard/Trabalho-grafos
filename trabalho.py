@@ -134,6 +134,10 @@ class GraphTool:
             elif command[1] == 'graus' and len(command) == 3:
                 graph_id = int(command[2].split('=')[1])
                 self.get_vertex_degrees(graph_id)
+            elif command[1] == 'grau' and len(command) == 4:
+                graph_id = int(command[2].split('=')[1])
+                vertex = command[3].split('=')[1].strip('"')
+                self.get_vertex_degree(graph_id, vertex)
             elif command[1] == 'sair':
                 sys.exit()
             else:
