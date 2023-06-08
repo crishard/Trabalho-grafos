@@ -51,6 +51,18 @@ class GraphTool:
         else:
             print("No disconnected graphs found")
 
+    def check_complete_graphs(self):
+        complete_graphs = []
+        for graph in self.graphs:
+            vertices = graph['vertices']
+            edges = graph['edges']
+            if self.is_complete(vertices, edges):
+                complete_graphs.append(graph['id'])
+        if complete_graphs:
+            print("Complete graphs found:", complete_graphs)
+        else:
+            print("No complete graphs found")
+
     def run_command(self, command):
         if command[0] == 'grafos':
             if len(command) == 3 and command[1] == 'carregar':
