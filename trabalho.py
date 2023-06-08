@@ -63,6 +63,30 @@ class GraphTool:
         else:
             print("No complete graphs found")
 
+
+    def is_connected(self, vertices, edges):
+        if not vertices:
+            return False
+        reachable_vertices = set()
+        queue = [vertices[0]]
+        while queue:
+            current_vertex = queue.pop(0)
+            reachable_vertices.add(current_vertex)
+            for edge in edges:
+                if edge[0] == current_vertex and edge[1] not in reachable_vertices:
+                    reachable_vertices.add(edge[1])
+                    queue.append(edge[1])
+                elif edge[1] == current_vertex and edge[0] not in reachable_vertices:
+                    reachable_vertices.add(edge[0])
+                    queue.append(edge[0])
+        return len(reachable_vertices) == len(vertices)
+
+    def is_complete(self, vertices, edges):
+        if not vertices:
+            return False
+        max_edges = len(vertices) * (len(vertices) - 1) // 2
+        return len(edges) == max_edges
+
     def run_command(self, command):
         if command[0] == 'grafos':
             if len(command) == 3 and command[1] == 'carregar':
