@@ -253,6 +253,11 @@ class GraphTool:
                 start_vertex = command[3].split('=')[1].strip('"')
                 end_vertex = command[4].split('=')[1].strip('"')
                 self.bfs(graph_id, start_vertex, end_vertex)
+            elif command[1] == 'dfs' and len(command) == 5:
+                graph_id = int(command[2].split('=')[1])
+                start_vertex = command[3].split('=')[1].strip('"')
+                end_vertex = command[4].split('=')[1].strip('"')
+                self.dfs(graph_id, start_vertex, end_vertex)
             elif command[1] == 'sair':
                 sys.exit()
             else:
