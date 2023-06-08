@@ -219,6 +219,11 @@ class GraphTool:
                 graph_id = int(command[2].split('=')[1])
                 starting_vertex = command[3].split('=')[1].strip("'")
                 self.find_unreachable_vertices(graph_id, starting_vertex)
+            elif command[1] == 'bfs' and len(command) == 5:
+                graph_id = int(command[2].split('=')[1])
+                start_vertex = command[3].split('=')[1].strip('"')
+                end_vertex = command[4].split('=')[1].strip('"')
+                self.bfs(graph_id, start_vertex, end_vertex)
             elif command[1] == 'sair':
                 sys.exit()
             else:
