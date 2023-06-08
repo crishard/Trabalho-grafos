@@ -78,6 +78,22 @@ class GraphTool:
                 return
         print("Graph not found:", graph_id)
 
+    
+    def get_vertex_degree(self, graph_id, vertex):
+        for graph in self.graphs:
+            if graph['id'] == graph_id:
+                edges = graph['edges']
+                degree = 0
+                for edge in edges:
+                    if edge[0] == vertex:
+                        degree += 1
+                    if edge[1] == vertex:
+                        degree += 1
+                print("Degree of vertex", vertex, "in graph", graph_id, "is", degree)
+                return
+        print("Graph not found:", graph_id)
+
+
     # função auxiliar
     def is_connected(self, vertices, edges):
         if not vertices:
