@@ -14,6 +14,17 @@ class GraphTool:
         except FileNotFoundError:
             print("File not found:", filename)
 
+    def check_multigraphs(self):
+        multigraphs = []
+        for graph in self.graphs:
+            edges = [tuple(edge) for edge in graph['edges']]
+            if len(graph['edges']) != len(set(edges)):
+                multigraphs.append(graph['id'])
+        if multigraphs:
+            print("Multigraphs found id's:", multigraphs)
+        else:
+            print("No multigraphs found")
+
     def run_command(self, command):
         if command[0] == 'grafos':
             if len(command) == 3 and command[1] == 'carregar':
