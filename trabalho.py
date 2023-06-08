@@ -39,6 +39,18 @@ class GraphTool:
         else:
             print("No pseudographs found")
 
+    def check_disconnected_graphs(self):
+        disconnected_graphs = []
+        for graph in self.graphs:
+            vertices = graph['vertices']
+            edges = graph['edges']
+            if not self.is_connected(vertices, edges):
+                disconnected_graphs.append(graph['id'])
+        if disconnected_graphs:
+            print("Disconnected graphs found:", disconnected_graphs)
+        else:
+            print("No disconnected graphs found")
+
     def run_command(self, command):
         if command[0] == 'grafos':
             if len(command) == 3 and command[1] == 'carregar':
