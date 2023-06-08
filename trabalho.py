@@ -45,6 +45,8 @@ class GraphTool:
                 self.load_graphs_from_file(command[2])
             elif command[1] == 'multigrafos':
                 self.check_multigraphs()
+            elif command[1] == 'pseudografos':
+                self.check_pseudographs()
             elif command[1] == 'sair':
                 sys.exit()
             else:
