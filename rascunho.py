@@ -1,7 +1,6 @@
 import json
 import sys
 
-
 class GraphTool:
     def __init__(self):
         self.graphs = []
