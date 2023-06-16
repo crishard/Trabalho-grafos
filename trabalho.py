@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from command_handler import command_handler
 
 class GraphTool:
@@ -11,7 +13,7 @@ class GraphTool:
 def main():
     graph_tool = GraphTool()
     while True:
-        user_input = input("Enter a command: ")
+        user_input = input()
         command = user_input.split()
         graph_tool.run_command(command)
 
