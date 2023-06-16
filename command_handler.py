@@ -11,6 +11,34 @@ from functions.base.find_unreachable_vertices.find_unreachable_vertices import f
 from functions.base.bfs.bfs import bfs
 from functions.base.dfs.dfs import dfs
 
+import os
+import glob
+
+def list_files_and_directories():
+    current_directory = os.getcwd()
+    directories = []
+    files = []
+
+    for entry in os.scandir(current_directory):
+        if entry.is_dir():
+            directories.append(entry.name)
+        elif entry.is_file():
+            files.append(entry.name)
+
+    for directory in directories:
+        print(directory)
+    for file in files:
+        print(file)
+
+
+
+def clear_terminal():
+    # Verifica o sistema operacional
+    if os.name == 'nt':  # Windows
+        os.system('cls')
+    else:  # Unix/Linux/Mac
+        os.system('clear')
+
 def command_handler(command, graphs):
     if command[0] == 'grafos':
         if len(command) == 3 and command[1] == 'carregar':
@@ -48,6 +76,10 @@ def command_handler(command, graphs):
             start_vertex = command[3].split('=')[1].strip('"')
             end_vertex = command[4].split('=')[1].strip('"')
             dfs(graphs, graph_id, start_vertex, end_vertex)
+        elif command[1] == 'ls':
+            list_files_and_directories()
+        elif command[1] == 'clear':
+            clear_terminal()
         elif command[1] == 'sair':
             sys.exit()
         else:
