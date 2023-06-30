@@ -66,14 +66,14 @@ def command_handler(command, graphs):
             graph_id = int(command[2].split('=')[1])
             starting_vertex = command[3].split('=')[1].strip("'").strip('"')
             find_reachable_vertices(graphs, graph_id, starting_vertex)
-        elif command[1] == 'alcancaveis_noid' and len(command) == 3:
+        elif command[1] == 'alcancaveis' and len(command) == 3:
             starting_vertex = command[2].split('=')[1].strip("'").strip('"')
             find_reachable_vertices_noId(graphs, starting_vertex)
         elif command[1] == 'inalcancaveis' and len(command) == 4:
             graph_id = int(command[2].split('=')[1])
             starting_vertex = command[3].split('=')[1].strip("'").strip('"')
             find_unreachable_vertices(graphs, graph_id, starting_vertex)
-        elif command[1] == 'inalcancaveis_noid' and len(command) == 3:
+        elif command[1] == 'inalcancaveis' and len(command) == 3:
             starting_vertex = command[2].split('=')[1].strip("'").strip('"')
             find_unreachable_vertices_noId(graphs, starting_vertex)
         elif command[1] == 'bfs' and len(command) == 5:
@@ -81,7 +81,7 @@ def command_handler(command, graphs):
             start_vertex = command[3].split('=')[1].strip('"')
             end_vertex = command[4].split('=')[1].strip('"')
             bfs(graphs, graph_id, start_vertex, end_vertex)
-        elif command[1] == 'bfs_noid' and len(command) == 4:
+        elif command[1] == 'bfs' and len(command) == 4:
             start_vertex = command[2].split('=')[1].strip('"')
             end_vertex = command[3].split('=')[1].strip('"')
             bfs_noId(graphs, start_vertex, end_vertex)
@@ -90,7 +90,7 @@ def command_handler(command, graphs):
             start_vertex = command[3].split('=')[1].strip('"')
             end_vertex = command[4].split('=')[1].strip('"')
             dfs(graphs, start_vertex, end_vertex)
-        elif command[1] == 'dfs_noid' and len(command) == 4:
+        elif command[1] == 'dfs' and len(command) == 4:
             start_vertex = command[2].split('=')[1].strip('"')
             end_vertex = command[3].split('=')[1].strip('"')
             dfs_noId(graphs, start_vertex, end_vertex)
