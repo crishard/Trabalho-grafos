@@ -10,9 +10,9 @@ from functions.base_functions.find_reachable_vertices.find_reachable_vertices im
 from functions.base_functions.find_reachable_vertices.find_reachable_vertices_noId import find_reachable_vertices_noId
 from functions.base_functions.find_unreachable_vertices.find_unreachable_vertices import find_unreachable_vertices
 from functions.base_functions.find_unreachable_vertices.find_unreachable_vertices_noId import find_unreachable_vertices_noId
-from functions.base_functions.bfs.bfs import bfs
+from functions.base_functions.bfs.bfs_id import bfs
 from functions.base_functions.bfs.bfs_noId import bfs_noId
-from functions.base_functions.dfs.dfs import dfs
+from functions.base_functions.dfs.dfs_id import dfs
 from functions.base_functions.dfs.dfs_noId import dfs_noId
 
 import os
