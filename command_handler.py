@@ -11,7 +11,9 @@ from functions.base.find_reachable_vertices.find_reachable_vertices_noId import 
 from functions.base.find_unreachable_vertices.find_unreachable_vertices import find_unreachable_vertices
 from functions.base.find_unreachable_vertices.find_unreachable_vertices_noId import find_unreachable_vertices_noId
 from functions.base.bfs.bfs import bfs
+from functions.base.bfs.bfs_noId import bfs_noId
 from functions.base.dfs.dfs import dfs
+from functions.base.dfs.dfs_noId import dfs_noId
 
 import os
 import glob
@@ -79,11 +81,19 @@ def command_handler(command, graphs):
             start_vertex = command[3].split('=')[1].strip('"')
             end_vertex = command[4].split('=')[1].strip('"')
             bfs(graphs, graph_id, start_vertex, end_vertex)
+        elif command[1] == 'bfs_noid' and len(command) == 4:
+            start_vertex = command[2].split('=')[1].strip('"')
+            end_vertex = command[3].split('=')[1].strip('"')
+            bfs_noId(graphs, start_vertex, end_vertex)
         elif command[1] == 'dfs' and len(command) == 5:
             graph_id = int(command[2].split('=')[1])
             start_vertex = command[3].split('=')[1].strip('"')
             end_vertex = command[4].split('=')[1].strip('"')
-            dfs(graphs, graph_id, start_vertex, end_vertex)
+            dfs(graphs, start_vertex, end_vertex)
+        elif command[1] == 'dfs_noid' and len(command) == 4:
+            start_vertex = command[2].split('=')[1].strip('"')
+            end_vertex = command[3].split('=')[1].strip('"')
+            dfs_noId(graphs, start_vertex, end_vertex)
         elif command[1] == 'ls':
             list_files_and_directories()
         elif command[1] == 'clear':
