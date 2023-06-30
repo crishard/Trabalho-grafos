@@ -7,7 +7,9 @@ from functions.base.check_complete_graphs.check_complete_graphs import check_com
 from functions.base.get_vertex_degrees.get_vertex_degrees import get_vertex_degrees
 from functions.base.get_vertex_degree.get_vertex_degree import get_vertex_degree
 from functions.base.find_reachable_vertices.find_reachable_vertices import find_reachable_vertices
+from functions.base.find_reachable_vertices.find_reachable_vertices_noId import find_reachable_vertices_noId
 from functions.base.find_unreachable_vertices.find_unreachable_vertices import find_unreachable_vertices
+from functions.base.find_unreachable_vertices.find_unreachable_vertices_noId import find_unreachable_vertices_noId
 from functions.base.bfs.bfs import bfs
 from functions.base.dfs.dfs import dfs
 
@@ -62,10 +64,16 @@ def command_handler(command, graphs):
             graph_id = int(command[2].split('=')[1])
             starting_vertex = command[3].split('=')[1].strip("'").strip('"')
             find_reachable_vertices(graphs, graph_id, starting_vertex)
+        elif command[1] == 'alcancaveis_noid' and len(command) == 3:
+            starting_vertex = command[2].split('=')[1].strip("'").strip('"')
+            find_reachable_vertices_noId(graphs, starting_vertex)
         elif command[1] == 'inalcancaveis' and len(command) == 4:
             graph_id = int(command[2].split('=')[1])
             starting_vertex = command[3].split('=')[1].strip("'").strip('"')
             find_unreachable_vertices(graphs, graph_id, starting_vertex)
+        elif command[1] == 'inalcancaveis_noid' and len(command) == 3:
+            starting_vertex = command[2].split('=')[1].strip("'").strip('"')
+            find_unreachable_vertices_noId(graphs, starting_vertex)
         elif command[1] == 'bfs' and len(command) == 5:
             graph_id = int(command[2].split('=')[1])
             start_vertex = command[3].split('=')[1].strip('"')
@@ -80,6 +88,24 @@ def command_handler(command, graphs):
             list_files_and_directories()
         elif command[1] == 'clear':
             clear_terminal()
+        elif command[1] == '--help':
+            print("Lista de comandos disponíveis:")
+            print("grafos carregar <nome_arquivo>")
+            print("grafos multigrafos")
+            print("grafos pseudografos")
+            print("grafos desconexos")
+            print("grafos completos")
+            print("grafos graus id=<id>")
+            print("grafos grau id=<id> vertice=<vértice>")
+            print("grafos alcancaveis id=<id> partida=<vértice>")
+            print("grafos inalcancaveis id=<id> partida=<vértice>")
+            print("grafos alcancaveis_noid partida=<vértice>")
+            print("grafos inalcancaveis_noid partida=<vértice>")
+            print("grafos bfs id=<id> partida=<vértice> chegada=<vértice>")
+            print("grafos dfs id=<id> partida=<vértice> chegada=<vértice>")
+            print("grafos sair")
+            print("grafos --help")
+        
         elif command[1] == 'sair':
             sys.exit()
         else:

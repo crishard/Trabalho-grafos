@@ -1,10 +1,12 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 from command_handler import command_handler
 
 import readline
 import os
 import atexit
+from pathlib import Path
+# print(Path('C:', '/', 'Users'))
 
 # Configurar histórico do readline
 histfile = os.path.join(os.path.expanduser("~"), ".command_history")
