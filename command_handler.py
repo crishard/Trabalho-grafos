@@ -1,26 +1,26 @@
 import sys
-from functions.base.load_graphs.load_graphs import load_graphs_from_file
-from functions.base.check_multigraphs.check_multigraphs import check_multigraphs
-from functions.base.check_pseudographs.cheack_pseudographs import check_pseudographs
-from functions.base.check_disconnected_graphs.check_disconnected_graphs import check_disconnected_graphs
-from functions.base.check_complete_graphs.check_complete_graphs import check_complete_graphs
-from functions.base.get_vertex_degrees.get_vertex_degrees import get_vertex_degrees
-from functions.base.get_vertex_degree.get_vertex_degree import get_vertex_degree
-from functions.base.find_reachable_vertices.find_reachable_vertices import find_reachable_vertices
-from functions.base.find_reachable_vertices.find_reachable_vertices_noId import find_reachable_vertices_noId
-from functions.base.find_unreachable_vertices.find_unreachable_vertices import find_unreachable_vertices
-from functions.base.find_unreachable_vertices.find_unreachable_vertices_noId import find_unreachable_vertices_noId
-from functions.base.bfs.bfs import bfs
-from functions.base.bfs.bfs_noId import bfs_noId
-from functions.base.dfs.dfs import dfs
-from functions.base.dfs.dfs_noId import dfs_noId
+from functions.base_functions.load_graphs.load_graphs import load_graphs_from_file
+from functions.base_functions.check_multigraphs.check_multigraphs import check_multigraphs
+from functions.base_functions.check_pseudographs.cheack_pseudographs import check_pseudographs
+from functions.base_functions.check_disconnected_graphs.check_disconnected_graphs import check_disconnected_graphs
+from functions.base_functions.check_complete_graphs.check_complete_graphs import check_complete_graphs
+from functions.base_functions.get_vertex_degrees.get_vertex_degrees import get_vertex_degrees
+from functions.base_functions.get_vertex_degree.get_vertex_degree import get_vertex_degree
+from functions.base_functions.find_reachable_vertices.find_reachable_vertices import find_reachable_vertices
+from functions.base_functions.find_reachable_vertices.find_reachable_vertices_noId import find_reachable_vertices_noId
+from functions.base_functions.find_unreachable_vertices.find_unreachable_vertices import find_unreachable_vertices
+from functions.base_functions.find_unreachable_vertices.find_unreachable_vertices_noId import find_unreachable_vertices_noId
+from functions.base_functions.bfs.bfs import bfs
+from functions.base_functions.bfs.bfs_noId import bfs_noId
+from functions.base_functions.dfs.dfs import dfs
+from functions.base_functions.dfs.dfs_noId import dfs_noId
 
 import os
 import glob
 
-from functions.check_cyrcle import check_cycle
-from functions.count_connected_vertices import count_connected_vertices
-from functions.find_cycles import find_cycles
+from functions.add_ons.check_cyrcle import check_cycle
+from functions.add_ons.count_connected_vertices import count_connected_vertices
+from functions.add_ons.find_cycles import find_cycles
 
 def list_files_and_directories():
     current_directory = os.getcwd()
@@ -128,12 +128,13 @@ def command_handler(command, graphs):
             print("grafos grau id=<id> vertice=<vértice>")
             print("grafos alcancaveis id=<id> partida=<vértice>")
             print("grafos inalcancaveis id=<id> partida=<vértice>")
-            print("grafos alcancaveis_noid partida=<vértice>")
-            print("grafos inalcancaveis_noid partida=<vértice>")
+            print("grafos alcancaveis partida=<vértice>")
+            print("grafos inalcancaveis partida=<vértice>")
             print("grafos bfs id=<id> partida=<vértice> chegada=<vértice>")
             print("grafos dfs id=<id> partida=<vértice> chegada=<vértice>")
+            print("grafos bfs partida=<vértice> chegada=<vértice>")
+            print("grafos dfs partida=<vértice> chegada=<vértice>")
             print("grafos sair")
-            print("grafos --help")
         
         elif command[1] == 'sair':
             sys.exit()

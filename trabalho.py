@@ -36,7 +36,7 @@ def main():
         except EOFError:
             break
         except KeyboardInterrupt:
-            print("Keyboard interrupt")
+            print("Program interrupt")
             break
 
 if __name__ == '__main__':
