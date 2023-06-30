@@ -18,6 +18,10 @@ from functions.base.dfs.dfs_noId import dfs_noId
 import os
 import glob
 
+from functions.check_cyrcle import check_cycle
+from functions.count_connected_vertices import count_connected_vertices
+from functions.find_cycles import find_cycles
+
 def list_files_and_directories():
     current_directory = os.getcwd()
     directories = []
@@ -94,6 +98,21 @@ def command_handler(command, graphs):
             start_vertex = command[2].split('=')[1].strip('"')
             end_vertex = command[3].split('=')[1].strip('"')
             dfs_noId(graphs, start_vertex, end_vertex)
+        
+
+        # funções extras
+        elif command[1] == 'cycles' and len(command) == 4:
+            graph_id = int(command[2].split('=')[1])
+            starting_vertex = command[3].split('=')[1].strip("'").strip('"')
+            check_cycle(graphs, graph_id, starting_vertex)
+        elif command[1] == 'strange' and len(command) == 3:
+            graph_id = int(command[2].split('=')[1])
+            find_cycles(graphs, graph_id)
+
+        elif command[1] == 'connected' and len(command) == 4:
+            graph_id = int(command[2].split('=')[1])
+            starting_vertex = command[3].split('=')[1].strip("'").strip('"')
+            count_connected_vertices(graphs, graph_id, starting_vertex)
         elif command[1] == 'ls':
             list_files_and_directories()
         elif command[1] == 'clear':

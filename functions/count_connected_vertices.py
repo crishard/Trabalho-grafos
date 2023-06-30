@@ -1,5 +1,5 @@
-def count_connected_vertices(self, graph_id, start_vertex):
-        for graph in self.graphs:
+def count_connected_vertices(graphs, graph_id, start_vertex):
+        for graph in graphs:
             if graph['id'] == graph_id:
                 vertices = graph['vertices']
                 edges = graph['edges']

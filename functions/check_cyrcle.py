@@ -1,5 +1,5 @@
-def check_cycle(self, graph_id, start_vertex):
-    for graph in self.graphs:
+def check_cycle(graphs, graph_id, start_vertex):
+    for graph in graphs:
         if graph['id'] == graph_id:
             vertices = graph['vertices']
             edges = graph['edges']
